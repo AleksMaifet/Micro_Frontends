@@ -2,14 +2,16 @@ import './App.css';
 
 import { useStore } from 'store/store';
 import { Button } from 'remoteApp/Button';
+import { observer } from 'mobx-react-lite';
 
 function App() {
-  const { count } = useStore();
+  const { counter } = useStore();
+  const { count } = counter;
 
   return (
     <div className="card">
       <h1>
-        Redux count is <span>{count}</span>
+        MobX count is <span>{count}</span>
       </h1>
 
       <br />
@@ -19,4 +21,4 @@ function App() {
   );
 }
 
-export default App;
+export default observer(App);
